@@ -31,7 +31,7 @@ public class Email {
 	
 	// Ask for department
 	private String setDepartment() {
-		System.out.println("New Employee: " + firstName + " select department: + \n1 for Sales\n2 for Development\n3 for Accounting\n0 for none\nEnter Department Code");
+		System.out.println("DEPARTMENT CODES\n1 for Sales\n2 for Development\n3 for Accounting\n0 for none\nEnter Department Code");
 		Scanner in = new Scanner(System.in);
 		int depChoice = in.nextInt();
 		if (depChoice == 1) {return "sales"; }
@@ -74,8 +74,8 @@ public class Email {
 	
 	public String showInfo() {
 		return "Name: " + firstName + " " + lastName +
-				"\nCompany email: " + email  +
-				"\nMailbox Capacity " + mailboxCapacity + "mb";
+				"Company email: " + email  +
+				"Mailbox Capacity " + mailboxCapacity + "mb";
 				
 				
 				
