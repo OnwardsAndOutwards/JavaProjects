@@ -1,0 +1,16 @@
+package emailapp;
+ 
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner q = new Scanner(System.in);
+        System.out.println("Enter your first name: ");
+        String nameFirst = q.next();
+        System.out.println("Enter your Last name : ");
+        String namelast = q.next();
+        EmialInfo obj = new EmialInfo(nameFirst,namelast);
+        System.out.println(obj.showInfo());
+ 
+    }
+}

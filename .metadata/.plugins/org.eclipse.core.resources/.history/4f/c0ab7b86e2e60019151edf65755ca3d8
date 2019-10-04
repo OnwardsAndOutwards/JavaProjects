@@ -1,0 +1,91 @@
+package emailapp;
+ 
+import java.util.Scanner;
+ 
+public class EmialInfo {
+ 
+    private String firstName;
+    private String lastName;
+    private String password;
+    private String department;
+    private int defaultLengthOfPass=10;
+    private String Email;
+    private int mailBoxCapacity=500;
+    private String alternativeEmail;
+ 
+    //Constructor for first name and last name
+    public EmialInfo(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.department = setDetp();
+ 
+        // Genrate Email for user
+        Email =  this.firstName.toLowerCase()+this.lastName.toLowerCase()+"@"+department+".com";
+ 
+        //Genrate the password
+        this.password = setPassword(defaultLengthOfPass);
+ 
+    }
+ 
+    //Ask for department
+    private String setDetp() {
+        System.out.print("Chose the department:\n 1 for Sales \n 2 for devlopment " +
+                "\n 3 for Accounting \n 0 if do not belong to any department " +
+                "\n Enter the department:");
+        Scanner j = new Scanner(System.in);
+        int a = j.nextInt();
+        if (a == 1)
+            return "sales";
+        else if (a == 2)
+            return "devlopment";
+        else if (a == 3)
+            return "accounting";
+        else
+            return "";
+ 
+    }
+    // creating random password
+    private String setPassword(int length){
+        String pass = "ABCDEFGHIJKLMNOPqrstuvwxyz123456790!@#$%^&*";
+        char[] password = new char[length];
+        for(int i=0;i<length;i++){
+            int p = (int) (Math.random()*44);
+            password[i] = pass.charAt(p);
+        }
+        return new String(password);
+    }
+ 
+ 
+    //Set the mailBox capacity
+    public void setMailBoxCapacity(int mailBoxCapacity){
+        this.mailBoxCapacity = mailBoxCapacity;
+    }
+ 
+    //Set alternative email
+    public void setAlternativeEmail(String alternativeEmail){
+        this.alternativeEmail = alternativeEmail;
+    }
+ 
+    //Change the password
+    public void changePassword(String password){
+        this.password = password;
+    }
+ 
+    public int getMailBoxCapacity(){
+        return mailBoxCapacity;
+    }
+    public String getAlternativeEmail(){
+        return alternativeEmail;
+    }
+    public String getPassword(){
+        return password;
+    }
+    public String showInfo(){
+        return "Name : "+firstName+" "+lastName+"\n" +
+                "Your department :" +department+"\n"+
+                "Company email : "+Email+"\n" +
+                "Password : " +password+"\n" +
+                "Default Mail Size : "+mailBoxCapacity+"mb";
+    }
+ 
+}
